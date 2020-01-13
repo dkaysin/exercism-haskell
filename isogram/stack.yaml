@@ -1,0 +1,4 @@
+resolver: lts-9.21
+extra-deps:
+  - text-1.2.2.2
+  - containers-0.5.7.1
