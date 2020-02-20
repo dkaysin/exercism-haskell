@@ -1,7 +1,6 @@
 module Alphametics (solve) where
 
 import           Control.Monad (foldM, guard)
-import           Data.Char     (isAlpha)
 import           Data.List
 import           Data.Maybe
 
@@ -22,12 +21,14 @@ listSolutions :: String -> [Lut]
 listSolutions xs = do
   let ops = parse $ words xs
   lut <- getLuts ops
-  let translated = map (termToNumber lut) ops
-  guard $ checkStack $ foldM stepStack emptyStack translated
+  guard $ checkStack $ evaluate $ map (termToNumber lut) ops
   return lut
 
+evaluate :: [Operation] -> Maybe Stack
+evaluate = foldM stepStack emptyStack
+
 checkStack :: Maybe Stack -> Bool
-checkStack (Just (n:_, _)) = n == 1
+checkStack (Just (n:_, _)) = n == 0
 checkStack _               = False
 
 parse :: [Term] -> [Operation]
@@ -60,7 +61,7 @@ operate Sum   = binaryOperation (+)
 operate Diff  = binaryOperation (-)
 operate Mult  = binaryOperation (*)
 operate Div   = binaryOperation div
-operate Equal = \a b -> if b == a then Just 1 else Just 0
+operate Equal = binaryOperation (-)
 operate _     = \_ _ -> Nothing
 
 binaryOperation :: (Int -> Int -> Int) -> Int -> Int -> Maybe Int
