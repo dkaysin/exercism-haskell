@@ -68,7 +68,7 @@ parseLine xw = composeSM $ map parseWordRef xw
 --  , "bar foo"
 -- When "parseWordVal" function is used in "parseLine" above, the output is:
 -- [5,6], i.e. definition of "bar" becomes fixed and no longer changes with changes of "foo"
--- However when "parseWordRef" function is instead, the output is:
+-- However when "parseWordRef" function is used instead, the output is:
 -- [6,6], i.e. definition of "bar" uses the updated definition of "foo" under the hood
 
 -- Custom words within the line are parsed via references to the latest state
@@ -79,7 +79,7 @@ parseWordRef txt = case decimal txt of
     Nothing  -> Left $ UnknownWord txt
   (Right (n,_)) -> put n
 
--- Custom words are dereferenced using the given state
+-- Custom words are dereferenced using the state provided
 parseWordVal :: ForthState -> Text -> StackManip
 parseWordVal state txt = case decimal txt of
   (Left _)      -> case T.toLower txt `M.lookup` dict state of
