@@ -1,5 +1,7 @@
 My solutions to [Exercism's Haskell track](https://exercism.io/tracks/haskell).
 
+Solutions (/src) are provided along with tests (/test).
+
 Topics covered:
 
 * Language features:
