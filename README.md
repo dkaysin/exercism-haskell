@@ -1,4 +1,4 @@
-My solutions to [Exercism's Haskell track](https://exercism.io/tracks/haskell)
+My solutions to [Exercism's Haskell track](https://exercism.io/tracks/haskell).
 
 Topics covered:
 
@@ -20,6 +20,6 @@ Topics covered:
 	* State machines
 
 Some of my favorite exercises:
-[Implement an evaluator for a very simple subset of Forth](../3 Hard/forth)
+[Implement an evaluator for a very simple subset of Forth](03_Hard/forth)
 
 My Exercism profile: https://exercism.io/profiles/dkaysin
