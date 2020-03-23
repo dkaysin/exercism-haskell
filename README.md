@@ -1,4 +1,4 @@
-My solutions to Exercism's Haskell track (https://exercism.io/tracks/haskell)
+My solutions to [Exercism's Haskell track](https://exercism.io/tracks/haskell)
 
 Topics covered:
 
