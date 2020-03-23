@@ -19,5 +19,7 @@ Topics covered:
 	* Domain-specific language interpretation
 	* State machines
 
+Some of my favorite exercises:
+[Implement an evaluator for a very simple subset of Forth](../3 Hard/forth)
 
 My Exercism profile: https://exercism.io/profiles/dkaysin
